@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 
 export default class About extends React.Component {
     render() {
