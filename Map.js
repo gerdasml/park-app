@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Button, StatusBar } from 'react-native';
 import MapView from 'react-native-maps';
 
 export default class Map extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar hidden={true}/>
                 <MapView
                     style={styles.map}
                     initialRegion={{

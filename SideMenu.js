@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavigationActions} from 'react-navigation';
-import { StyleSheet, ScrollView, Text, View} from 'react-native';
+import { StyleSheet, ScrollView, Text, View, StatusBar} from 'react-native';
 
 export default class SideMenu extends Component {
   navigateToScreen = (route) => () => {
@@ -13,14 +13,15 @@ export default class SideMenu extends Component {
   render () {
     return (
       <View style={styles.container}>
+        <StatusBar hidden={true}/>
         <ScrollView>
           <View>
             <Text style={styles.sectionHeadingStyle}>
               Section 1
             </Text>
             <View style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Map')}>
-                Different map
+              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Point')}>
+                Point lais hier
               </Text>
             </View>
           </View>

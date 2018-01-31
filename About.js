@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Button, StatusBar } from 'react-native';
 
 export default class About extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar hidden={true}/>
                 <Text>This is infoooo</Text>
             </View>
         )
