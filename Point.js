@@ -12,7 +12,7 @@ export default class Point extends React.Component {
                 <View style={styles.icon}/>
                 <View style={styles.info}>
                     <Text style={styles.blackText}>Stotele</Text>
-                    <Text>This is info about uganda knuckles</Text>
+                    <Text style={styles.infoText}>This is info about uganda knuckles</Text>
                 </View>
             </View>
         )
@@ -46,11 +46,17 @@ const styles = StyleSheet.create({
     },
     whiteText: {
         color: 'white',
-        fontSize: 32
+        fontSize: 32,
+        position: 'absolute',
+        top: Dimensions.get('window').height * 0.22
     },
     blackText: {
         color: 'black',
         fontSize: 32
+    },
+    infoText: {
+        position: 'absolute',
+        top: Dimensions.get('window').height * 0.1
     }
   });
   
