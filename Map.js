@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View, Dimensions, Button, StatusBar } from 'react-native';
 import MapView from 'react-native-maps';
 
-export default class Map extends React.Component {
+import MapMarker from './MapMarker';
+
+export default class Map extends Component {
     render() {
+        
         return (
             <View style={styles.container}>
                 <StatusBar hidden={true}/>
@@ -15,7 +18,9 @@ export default class Map extends React.Component {
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421
                     }}
-                />
+                >
+                    <MapMarker/>
+                </MapView>
             </View>
         )
     }

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, View, Dimensions, Image, Text, StatusBar} from 'react-native';
 
-export default class Point extends React.Component {
+export default class Point extends Component {
     render() {
         return (
             <View style={styles.container}>
