@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Dimensions, Button, StatusBar } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
+import {NavigationActions} from 'react-navigation';
 
 import MapMarker from './MapMarker';
 import path from './LatLng';
 
 export default class Map extends Component {
+    navigateToScreen = (route) => {
+        const navigateAction = NavigationActions.navigate({
+            routeName: route
+        });
+        this.props.navigation.dispatch(navigateAction);
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -21,7 +28,7 @@ export default class Map extends Component {
                     minZoomLevel={14.5}
                     maxZoomLevel={17}
                 >
-                    <MapMarker/>
+                    <MapMarker onMarkerClicked={this.navigateToScreen.bind(this)}/>
                     <Polyline
                         coordinates={path}
                         strokeColor="#f00" // fallback for when `strokeColors` is not supported by the map-provider
