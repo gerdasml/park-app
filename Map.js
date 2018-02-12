@@ -7,9 +7,10 @@ import MapMarker from './MapMarker';
 import path from './LatLng';
 
 export default class Map extends Component {
-    navigateToScreen = (route) => {
+    navigateToScreen = (route, point) => {
         const navigateAction = NavigationActions.navigate({
-            routeName: route
+            routeName: route,
+            params: point
         });
         this.props.navigation.dispatch(navigateAction);
     }

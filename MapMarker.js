@@ -4,13 +4,14 @@ import { DrawerNavigator } from 'react-navigation';
 
 import tree from './assets/tree.png';
 import Point from './Point';
+import points from './Points';
+
 
 export default class MapMarker extends Component {
     render() {
-        console.log(this.props);
         const markers = [
-            {coordinate: {longitude: 24.928917, latitude: 54.818275}, image: tree},
-            {coordinate: {longitude: 24.932462, latitude: 54.820199}, image: tree}
+            {coordinate: {longitude: 24.928917, latitude: 54.818275}, image: tree, point: points[0]},
+            {coordinate: {longitude: 24.932462, latitude: 54.820199}, image: tree, point: points[1]}
         ]
         return markers.map((marker, i) => (
                 <Marker
@@ -18,7 +19,7 @@ export default class MapMarker extends Component {
                     coordinate={marker.coordinate}
                     title={marker.title}
                     image={marker.image}
-                    onPress={() => this.props.onMarkerClicked('Point')}
+                    onPress={() => this.props.onMarkerClicked('Point', marker.point)}
                 />
               ));
     }

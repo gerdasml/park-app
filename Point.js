@@ -3,16 +3,17 @@ import { StyleSheet, View, Dimensions, Image, Text, StatusBar} from 'react-nativ
 
 export default class Point extends Component {
     render() {
+        const param = this.props.navigation.state.params;
         return (
             <View style={styles.container}>
                 <StatusBar hidden={true}/>
                 <View style={styles.cover}>
-                    <Text style={styles.whiteText}>Nykstuko chata</Text>
+                    <Text style={styles.whiteText}>{param.name}</Text>
                 </View>
                 <View style={styles.icon}/>
                 <View style={styles.info}>
-                    <Text style={styles.blackText}>Stotele</Text>
-                    <Text style={styles.infoText}>This is info about uganda knuckles</Text>
+                    <Text style={styles.blackText}>{param.type}</Text>
+                    <Text style={styles.infoText}>{param.description}</Text>
                 </View>
             </View>
         )
