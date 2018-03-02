@@ -14,22 +14,11 @@ export default class SideMenu extends Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true}/>
-        <ScrollView>
+        <ScrollView> 
           <View>
             <Text style={styles.sectionHeadingStyle}>
               Section 1
             </Text>
-            <View style={styles.navSectionStyle}>
-              <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Point')}>
-                Point lais hier
-              </Text>
-            </View>
-          </View>
-          <View>
-            <Text style={styles.sectionHeadingStyle}>
-              Section 2
-            </Text>
-
             <View style={styles.navSectionStyle}>
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('About')}>
                 About map

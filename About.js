@@ -15,7 +15,10 @@ export default class About extends Component {
                 <Hamburger 
                     active={this.state.active}
                     type="cross"
-                    onPress={() => this.setState({active: !this.state.active})}
+                    onPress={() => {
+                        this.setState({active: !this.state.active});
+                        this.props.navigation.navigate('DrawerOpen');
+                    }}
                 />
                 <StatusBar hidden={true}/>
                 <Text>This is infoooo</Text>

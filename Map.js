@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Dimensions, Button, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Button, StatusBar, Image } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
 import {NavigationActions} from 'react-navigation';
 
 import MapMarker from './MapMarker';
 import path from './LatLng';
+import tree from './assets/tree.png';
 
 export default class Map extends Component {
+    static navigationOptions = {
+        drawerLabel: 'Stuff',
+        drawerIcon: ({tintColor}) => (
+            <Image 
+                source={tree}
+                style={styles.icon}
+            />
+        ),
+        title: "Title",
+        headerLeft: "Burger"
+    }
     navigateToScreen = (route, point) => {
         const navigateAction = NavigationActions.navigate({
             routeName: route,
@@ -18,6 +30,7 @@ export default class Map extends Component {
         return (
             <View style={styles.container}>
                 <StatusBar hidden={true}/>
+                <Text>sitas appsas yra</Text>
                 <MapView
                     style={styles.map}
                     initialRegion={{
@@ -52,6 +65,10 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height - 200,
         zIndex: -1
+    },
+    icon: {
+        width: 24,
+        height: 24
     }
   });
   
