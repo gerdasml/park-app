@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import {NavigationActions} from 'react-navigation';
 import { StyleSheet, ScrollView, Text, View, StatusBar} from 'react-native';
+import Hamburger from 'react-native-hamburger';
 
 export default class SideMenu extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        active: true
+    }
+  }
   navigateToScreen = (route) => () => {
     const navigateAction = NavigationActions.navigate({
       routeName: route
@@ -14,6 +21,16 @@ export default class SideMenu extends Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true}/>
+        <Hamburger 
+            style={{position: 'absolute', right: '-50%'}}
+            active={this.state.active}
+            type="cross"
+            onPress={() => {
+              console.log(this.props.navigation);
+                this.setState({active: !this.state.active});
+                this.props.navigation.navigate('DrawerToggle');
+            }}
+        />
         <ScrollView> 
           <View>
             <Text style={styles.sectionHeadingStyle}>

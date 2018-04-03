@@ -8,7 +8,7 @@ export default class Loading extends Component {
                 <StatusBar hidden={true}/>
                 <Text>This is loading screen</Text>
             </View>
-        )
+        );
     }
 }
 
