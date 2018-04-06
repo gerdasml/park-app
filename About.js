@@ -11,34 +11,34 @@ export default class About extends Component {
     }
     render() {
         return (
-            <View style={styles.container}>
-                {/*<Hamburger 
-                    active={this.state.active}
-                    type="cross"
-                    onPress={() => {
-                        this.setState({active: !this.state.active});
-                        this.props.navigation.navigate('DrawerOpen');
-                    }}
-                />*/}
-                <StatusBar hidden={true}/>
-                <Text>This is infoooo</Text>
+            <View>
+                <View style={styles.actionButton}>
+                    <Hamburger 
+                        active={false}
+                        type="cross"
+                        onPress={() => {
+                            this.props.navigation.navigate('DrawerOpen');
+                        }}
+                        />
+                </View>
+                    <StatusBar hidden={true}/>
+                    <View>
+                        <Text>This is infoooo</Text>
+                    </View>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    text: {
       flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      backgroundColor: '#fff'
     },
     actionButton: {
-        position: 'relative',
-        width: Dimensions.get('window').width,
-        height: 20,
-        zIndex: 1
+        justifyContent: 'flex-start',
+        width: Dimensions.get("window").width,
+        height: 40
     }
   });
   

@@ -7,7 +7,7 @@ export default class SideMenu extends Component {
   constructor(props){
     super(props);
     this.state = {
-        active: true
+        active: false
     }
   }
   navigateToScreen = (route) => () => {
@@ -21,16 +21,17 @@ export default class SideMenu extends Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true}/>
-        <Hamburger 
-            style={{position: 'absolute', right: '-50%'}}
-            active={this.state.active}
-            type="cross"
-            onPress={() => {
-              console.log(this.props.navigation);
-                this.setState({active: !this.state.active});
+        <View style={styles.buttonDiv}>
+          <Hamburger 
+              style={{position: 'absolute', right: '-50%'}}
+              active={true}
+              type="cross"
+              onPress={() => {
+                console.log(this.props.navigation);
                 this.props.navigation.navigate('DrawerToggle');
-            }}
-        />
+              }}
+              />
+        </View>
         <ScrollView> 
           <View>
             <Text style={styles.sectionHeadingStyle}>
@@ -72,6 +73,12 @@ const styles = StyleSheet.create({
     footerContainer: {
         padding: 20,
         backgroundColor: 'lightgrey'
+    },
+    buttonDiv: {
+      width: 400,
+      zIndex: 5,
+      paddingLeft: 260,
+      position: "absolute"
     }
 });
   
