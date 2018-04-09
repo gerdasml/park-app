@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Dimensions, Image, Text, StatusBar} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class Point extends Component {
     render() {
@@ -7,6 +8,15 @@ export default class Point extends Component {
         return (
             <View style={styles.container}>
                 <StatusBar hidden={true}/>
+                <View style={styles.actionButton}>
+                    <Ionicons
+                        name="md-menu"
+                        size={32}
+                        onPress={() => {
+                        console.log(this.props.navigation);
+                        this.props.navigation.navigate('DrawerOpen');
+                        }}/>
+                </View>
                 <View style={styles.cover}>
                     <Text style={styles.whiteText}>{param.name}</Text>
                 </View>
@@ -58,6 +68,14 @@ const styles = StyleSheet.create({
     infoText: {
         position: 'absolute',
         top: Dimensions.get('window').height * 0.1
+    },
+    actionButton: {
+        //justifyContent: 'flex-start',
+        width: Dimensions.get("window").width,
+        height: 40,
+        paddingLeft: 10,
+        position: 'absolute',
+        zIndex: 1
     }
   });
   

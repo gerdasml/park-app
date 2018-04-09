@@ -1,25 +1,22 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Dimensions, Button, StatusBar } from 'react-native';
-import Hamburger from 'react-native-hamburger';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class About extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            active: true
-        }
     }
     render() {
         return (
             <View>
                 <View style={styles.actionButton}>
-                    <Hamburger 
-                        active={false}
-                        type="cross"
+                    <Ionicons
+                        name="md-menu"
+                        size={32}
                         onPress={() => {
-                            this.props.navigation.navigate('DrawerOpen');
-                        }}
-                        />
+                        console.log(this.props.navigation);
+                        this.props.navigation.navigate('DrawerOpen');
+                        }}/>
                 </View>
                     <StatusBar hidden={true}/>
                     <View>
@@ -38,7 +35,8 @@ const styles = StyleSheet.create({
     actionButton: {
         justifyContent: 'flex-start',
         width: Dimensions.get("window").width,
-        height: 40
+        height: 40,
+        paddingLeft: 10
     }
   });
   

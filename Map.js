@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, Dimensions, Button, StatusBar, Image } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
 import {NavigationActions} from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 
 import MapMarker from './MapMarker';
 import path from './LatLng';
@@ -30,6 +31,16 @@ export default class Map extends Component {
         return (
             <View style={styles.container}>
                 <StatusBar hidden={true}/>
+                <View style={styles.actionButton}>
+                    <Ionicons
+                        name="md-menu"
+                        size={32}
+                        onPress={() => {
+                        console.log(this.props.navigation);
+                        this.props.navigation.navigate('DrawerOpen');
+                        }}/>
+                </View>
+                <View style={styles.textMap}>
                 <Text>sitas appsas yra</Text>
                 <MapView
                     style={styles.map}
@@ -49,6 +60,8 @@ export default class Map extends Component {
                         strokeWidth={6}
                     />
                 </MapView>
+                </View>
+                
             </View>
         )
     }
@@ -57,9 +70,9 @@ export default class Map extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      backgroundColor: '#fff'
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
     },
     map: {
         width: Dimensions.get('window').width,
@@ -69,6 +82,17 @@ const styles = StyleSheet.create({
     icon: {
         width: 24,
         height: 24
+    },
+    actionButton: {
+        justifyContent: 'flex-start',
+        width: Dimensions.get("window").width,
+        height: 40,
+        paddingLeft: 10
+    },
+    textMap: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1
     }
   });
   

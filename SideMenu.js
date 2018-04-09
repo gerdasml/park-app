@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import {NavigationActions} from 'react-navigation';
 import { StyleSheet, ScrollView, Text, View, StatusBar} from 'react-native';
-import Hamburger from 'react-native-hamburger';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class SideMenu extends Component {
   constructor(props){
     super(props);
-    this.state = {
-        active: false
-    }
   }
   navigateToScreen = (route) => () => {
     const navigateAction = NavigationActions.navigate({
@@ -22,15 +19,13 @@ export default class SideMenu extends Component {
       <View style={styles.container}>
         <StatusBar hidden={true}/>
         <View style={styles.buttonDiv}>
-          <Hamburger 
-              style={{position: 'absolute', right: '-50%'}}
-              active={true}
-              type="cross"
-              onPress={() => {
-                console.log(this.props.navigation);
-                this.props.navigation.navigate('DrawerToggle');
-              }}
-              />
+          <Ionicons
+            name="md-close"
+            size={32}
+            onPress={() => {
+              console.log(this.props.navigation);
+              this.props.navigation.navigate('DrawerToggle');
+            }}/>
         </View>
         <ScrollView> 
           <View>
@@ -77,7 +72,7 @@ const styles = StyleSheet.create({
     buttonDiv: {
       width: 400,
       zIndex: 5,
-      paddingLeft: 260,
+      paddingLeft: 270,
       position: "absolute"
     }
 });
