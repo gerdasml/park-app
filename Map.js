@@ -30,7 +30,6 @@ export default class Map extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar hidden={true}/>
                 <View style={styles.actionButton}>
                     <Ionicons
                         name="md-menu"
@@ -50,6 +49,7 @@ export default class Map extends Component {
                         latitudeDelta: 0.015,
                         longitudeDelta: 0.015
                     }}
+                    scrollEnabled={false}
                     minZoomLevel={14.5}
                     maxZoomLevel={17}
                 >
