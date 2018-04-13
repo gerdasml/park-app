@@ -30,14 +30,28 @@ export default class SideMenu extends Component {
         <ScrollView> 
           <View>
             <Text style={styles.sectionHeadingStyle}>
-              Section 1
+              Meniu
             </Text>
             <View style={styles.navSectionStyle}>
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('About')}>
-                About map
+                Apie
               </Text>
               <Text style={styles.navItemStyle} onPress={this.navigateToScreen('Map')}>
-                Map
+                Žemėlapis
+              </Text>
+            </View>
+            <Text style={styles.sectionHeadingStyle}>
+              Sutartiniai ženklai
+            </Text>
+            <View style={styles.navSectionStyle}>
+              <Text style={styles.navItemStyle}>
+                Jūsų pozicija
+              </Text>
+              <Text style={styles.navItemStyle}>
+                Stotelės
+              </Text>
+              <Text style={styles.navItemStyle}>
+                Takas
               </Text>
             </View>
           </View>

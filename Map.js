@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Dimensions, Button, StatusBar, Image } from 'react-native';
-import MapView, { Polyline } from 'react-native-maps';
+import MapView, { Polyline, UrlTile } from 'react-native-maps';
 import {NavigationActions} from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 
 import MapMarker from './MapMarker';
 import path from './LatLng';
 import tree from './assets/tree.png';
+import mapStyle from './MapStyle'; 
 
 export default class Map extends Component {
     static navigationOptions = {
@@ -43,16 +44,20 @@ export default class Map extends Component {
                 <Text>sitas appsas yra</Text>
                 <MapView
                     style={styles.map}
-                    initialRegion={{
+                    region={{
                         latitude: 54.821,
                         longitude: 24.9365,
                         latitudeDelta: 0.015,
                         longitudeDelta: 0.015
                     }}
-                    scrollEnabled={false}
                     minZoomLevel={14.5}
                     maxZoomLevel={17}
+                    customMapStyle={mapStyle}
                 >
+                    {/* <UrlTile
+                        urlTemplate="http://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        maximumZ={17}
+                    /> */}
                     <MapMarker onMarkerClicked={this.navigateToScreen.bind(this)}/>
                     <Polyline
                         coordinates={path}
