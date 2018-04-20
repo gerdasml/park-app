@@ -20,6 +20,7 @@ export default class Map extends Component {
                 longitudeDelta: 0.015
               }
         }
+        this.neverChangingRegion = this.state.region;
     }
     static navigationOptions = {
         drawerLabel: 'Stuff',
@@ -41,8 +42,23 @@ export default class Map extends Component {
     }
       
     onRegionChange(region) {
-        console.log("it's alivwe");
-    this.setState({ region });
+        console.log("region");
+        console.log(region);
+        console.log("never changing");
+        console.log(this.neverChangingRegion);
+        const left = region.longitude - region.longitudeDelta;
+        const right = region.longitude + region.longitudeDelta;
+        const bot = region.latitude - region.latitudeDelta;
+        const top = region.latitude + region.latitudeDelta;
+        
+        const LEFT = this.neverChangingRegion.longitude - this.neverChangingRegion.longitudeDelta;
+        const RIGHT = this.neverChangingRegion.longitude + this.neverChangingRegion.longitudeDelta;
+        const BOT = this.neverChangingRegion.latitude - this.neverChangingRegion.latitudeDelta;
+        const TOP = this.neverChangingRegion.latitude + this.neverChangingRegion.latitudeDelta;
+        
+        if(left < LEFT || right > RIGHT || bot < BOT || top > TOP) {this.setState({region: this.neverChangingRegion}); return;}
+        
+        this.setState({region});
     }
     render() {
         return (
@@ -65,6 +81,7 @@ export default class Map extends Component {
                     minZoomLevel={14.5}
                     maxZoomLevel={17}
                     customMapStyle={mapStyle}
+                    ref={(ref) => this.region = ref}
                     
                 >
                     <MapMarker onMarkerClicked={this.navigateToScreen.bind(this)}/>
