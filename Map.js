@@ -10,6 +10,17 @@ import tree from './assets/tree.png';
 import mapStyle from './MapStyle'; 
 
 export default class Map extends Component {
+    constructor(props){
+        super(props);
+        this.state= {
+            region: {
+                latitude: 54.821,
+                longitude: 24.9365,
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.015
+              }
+        }
+    }
     static navigationOptions = {
         drawerLabel: 'Stuff',
         drawerIcon: ({tintColor}) => (
@@ -28,6 +39,11 @@ export default class Map extends Component {
         });
         this.props.navigation.dispatch(navigateAction);
     }
+      
+    onRegionChange(region) {
+        console.log("it's alivwe");
+    this.setState({ region });
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -44,25 +60,18 @@ export default class Map extends Component {
                 <Text>sitas appsas yra</Text>
                 <MapView
                     style={styles.map}
-                    region={{
-                        latitude: 54.821,
-                        longitude: 24.9365,
-                        latitudeDelta: 0.015,
-                        longitudeDelta: 0.015
-                    }}
+                    region={this.state.region}
+                    onRegionChange={this.onRegionChange.bind(this)}
                     minZoomLevel={14.5}
                     maxZoomLevel={17}
                     customMapStyle={mapStyle}
+                    
                 >
-                    {/* <UrlTile
-                        urlTemplate="http://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        maximumZ={17}
-                    /> */}
                     <MapMarker onMarkerClicked={this.navigateToScreen.bind(this)}/>
                     <Polyline
                         coordinates={path}
-                        strokeColor="#f00" // fallback for when `strokeColors` is not supported by the map-provider
-                        strokeWidth={6}
+                        strokeColor="#dba63d" // fallback for when `strokeColors` is not supported by the map-provider
+                        strokeWidth={3}
                     />
                 </MapView>
                 </View>
