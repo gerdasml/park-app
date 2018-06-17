@@ -1,9 +1,9 @@
 import { DrawerNavigator } from 'react-navigation';
 
-import Map from './Map';
-import About from './About';
-import Point from './Point';
-import SideMenu from './SideMenu';
+import Map from '../component/Map';
+import About from '../component/About';
+import Point from '../component/Point';
+import SideMenu from '../component/SideMenu';
 
 export default DrawerNavigator({
   Map: {screen: Map},

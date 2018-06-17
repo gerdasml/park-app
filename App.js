@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Router from './routes';
+import Router from './src/config/routes';
 import {View, AppRegistry } from 'react-native';
 import { Asset, AppLoading } from 'expo';
 

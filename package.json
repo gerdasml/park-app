@@ -5,6 +5,7 @@
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
     "expo": "^25.0.0",
+    "geolib": "^2.0.24",
     "react": "16.2.0",
     "react-native": "0.52.0",
     "react-native-hamburger": "0.0.2",
